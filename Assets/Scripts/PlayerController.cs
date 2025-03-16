@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     #region Variables
-    [Tooltip("The camera's rotational offset so the player can move up and down.")]
-    [SerializeField] Vector2 cameraRotationOffser;
+    [Tooltip("The camera's positional offset.")]
+    [SerializeField] Vector3 cameraOffset;
+    [Tooltip("The main camera attached to the player.")]
+    [SerializeField] GameObject mainCamera;
     [Tooltip("The player's Rigidbody component for movement.")]
     [SerializeField] Rigidbody rb;
     [Tooltip("The player's action map for movement and shooting.")]
@@ -29,6 +31,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        LerpCamera();
         Shoot();
     }
     #endregion
@@ -44,6 +47,11 @@ public class PlayerController : MonoBehaviour
             return;
         }
         rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, movement * stats.speed, stats.smoothener);
+    }
+    void LerpCamera()
+    {
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position,
+            rb.position + cameraOffset, stats.cameraDampener);
     }
     void Shoot()
     {

@@ -12,6 +12,9 @@ public class PlayerStats : ScriptableObject
     [Tooltip("The rate at which the player slows down.")]
     [Range(0.005f, 0.5f)]
     public float dampener;
+    [Tooltip("The rate at which the player slows down.")]
+    [Range(0f, 1f)]
+    public float cameraDampener;
     [Tooltip("The rate at which the player changes direction.")]
     [Range(0.005f, 0.5f)]
     public float smoothener;
