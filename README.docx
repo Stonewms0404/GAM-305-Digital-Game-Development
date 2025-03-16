@@ -49,19 +49,13 @@ MODULE 3:
  Programming:
 		BS - Start working on the Enemy. 
 		CP - Connect the Player and Enemies together.
-		OT - Rework anything within the scripts to have better cohesion between scripts to be more efficient.
-		BS/Fi - Start In-Game UI.
-		BS - Start Gameplay Loop.
+		BS - Player Shooting
  Modeling:
-		BS - Start working on easy/simple models.
-		BS - Start working on the player model (if needed)
-		BS - Start Enemy models. (At least 1 started, 2-3 if no player model)
-		Fi - Finish Player model (if needed).
-		BS - Start Enemy models. (2-3 completed, all completed if no Player)
+		BS - Start working on the player model
+		BS - Start Enemy models. (1-2 completed)
  Unity Manager/Level Designer:
 		OT - Organize project into folders.
 		BS - Start working on the level and environment/player route.
-		Fi - Finish working on the level.
 		BS - Start working on VFX/Materials (if needed).
 
 MODULE 4: Alpha Release (March 30th, 2025)
@@ -73,14 +67,16 @@ MODULE 4: Alpha Release (March 30th, 2025)
 		(Sa) Check-in for final sprint of the Alpha Release.
 		(Su) Last Check-in before submission.
  Programming:
-		CP/Fi - Finish rough draft of the gameplay loop.
 		Fi - Finish In-Game UI.
 		BS - Create Menu UI.
  Modeling:
+		Fi - Finish Player Model
 		Fi - Finish Modeling Enemy(s)
 		BS/Fi - Start and finish Projectiles
  Unity Manager/Level Designer:
-
+		Fi - Finish working on the level
+		BS - Start Gameplay Loop
+		BS - Start In-Game UI
 
 
 MODULE 5:        BETA RELEASE (April 6th, 2025)
@@ -91,25 +87,29 @@ MODULE 5:        BETA RELEASE (April 6th, 2025)
 		(Th) Check-in for the final stretch before the submission.
 		(Sa) Check-in for final sprint of the Beta Release.
 		(Su) Last Check-in before submission.
+		QA Test
  Programming:
 		FT - Check all edge cases for bugs and stress test the build.
-		FT - Beautify the UI with animations and other special effects
+		FT - Reword anything within the scripts to have better cohesion between scripts to be more efficient
  Modeling:
 		FT - Fix any and all N-gons on all models
  Unity Manager/Level Designer:
+		
 
 MODULE 6: FINAL RELEASE (April 13th, 2025)
  Team:
-		Talk about what is needed to reach the Alpha Release.
+		Talk about what is needed to reach the Final Release.
 		Complete final check-ins before starting the week's worth of work.
+		QA Test
  Programming:
-
+		Balance shooting with enemy health
+		Balance enemy spawn rates
 
  Modeling:
-
+	Finish animations
 
  Unity Manager/Level Designer:
-
+	Beautify the UI with animations and other special effects
 
 Determine the development goals for the Alpha and Beta Stage submissions (which assets/elements should be in place and what level of functionality you are going to use to track the project progress in the Alpha and Beta stages).
 	Alpha Stage Goals
@@ -136,6 +136,10 @@ Choose the frequency of communication (team meeting).
 
 Choose a method for assigning and reporting on specific task items.
 	Discord Communication / Miro Board Flowchart
+	Jonathan: Modeling
+	Stone: Programming
+	David: UI
+	All: Level Design
 
 Jonathan LeMasters
 David Valdivia
