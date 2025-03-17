@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0fcf0ed6da0fb40b0589389ccafde1, type: 3}
-  m_Name: PlayerStats_1
+  m_Script: {fileID: 11500000, guid: bb10fbf1904b02f41b64c08f9e56c445, type: 3}
+  m_Name: ProjectileStats_1
   m_EditorClassIdentifier: 
-  speed: 6
-  dampener: 0.065
-  cameraDampener: 0.032
-  smoothener: 0.037
-  shotsPerSecond: 25
-  lives: 3
+  speed: 25
+  dampener: 0.005
+  attackDamage: 1
+  spread: 2.56
+  lifeTimer: 2.63

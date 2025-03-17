@@ -22,7 +22,7 @@ public class PlayerStats : ScriptableObject
     [Header("Shooting")]
     [Tooltip("How many shots can the player shoot out per second.")]
     [Range(1, 100)]
-    public int shootsPerSecond;
+    public int shotsPerSecond;
 
     [Header("Health")]
     [Tooltip("How many hits until the player dies.")]
