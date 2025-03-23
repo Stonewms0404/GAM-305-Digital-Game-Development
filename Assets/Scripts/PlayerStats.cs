@@ -12,6 +12,9 @@ public class PlayerStats : ScriptableObject
     [Tooltip("The rate at which the player slows down.")]
     [Range(0.005f, 0.5f)]
     public float dampener;
+    [Tooltip("The rate at which the player slows down.")]
+    [Range(0f, 1f)]
+    public float cameraDampener;
     [Tooltip("The rate at which the player changes direction.")]
     [Range(0.005f, 0.5f)]
     public float smoothener;
@@ -19,7 +22,7 @@ public class PlayerStats : ScriptableObject
     [Header("Shooting")]
     [Tooltip("How many shots can the player shoot out per second.")]
     [Range(1, 100)]
-    public int shootsPerSecond;
+    public int shotsPerSecond;
 
     [Header("Health")]
     [Tooltip("How many hits until the player dies.")]
