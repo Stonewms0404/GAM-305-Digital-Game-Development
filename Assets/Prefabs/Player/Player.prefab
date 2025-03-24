@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 3368246791140058781}
   - component: {fileID: 49549457090776863}
   - component: {fileID: 2378728123084463724}
+  - component: {fileID: 4225504679403633899}
   - component: {fileID: 8744026880283550557}
   - component: {fileID: 2302527924011685982}
   - component: {fileID: 2700705337977623691}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,6 +90,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4225504679403633899
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246529036359659024}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8744026880283550557
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,14 +150,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711441dad6715dd4ba106c655f6be18a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOffset: {x: 0, y: 15, z: -3}
+  cameraOffset: {x: 0, y: 20, z: -4}
   mainCamera: {fileID: 0}
   rb: {fileID: 8744026880283550557}
   playerInput: {fileID: 2700705337977623691}
   projectileContainer: {fileID: 0}
   particleContainer: {fileID: 0}
-  playerProjectile: {fileID: 5706046740633881759, guid: ed466d007d24fb643ba8555470d9a1f8, type: 3}
-  stats: {fileID: 11400000, guid: a0a085153a3eea847881a5af709578ef, type: 2}
+  stats: {fileID: 11400000, guid: 04ef7977ad3f2bd439288fc11b07bf19, type: 2}
 --- !u!114 &2700705337977623691
 MonoBehaviour:
   m_ObjectHideFlags: 0
