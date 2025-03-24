@@ -1,7 +1,8 @@
 GAM 305
 
 
-Miro Board Invite https://miro.com/welcomeonboard/TzRKS1NDbmNRRkJEUm9CZDFFMnJnR1NhTDk1ZW9XK1l1Wi9kcU1LREN2eEpGYkx1c2F4bm5KY3BGakZ2V2tiR0puNm5ucFBpczZXN281QTUzazZ5azNFamZSRkZFQndSMFkxZ0JyRHgxWHVzRDFqOWJway8ybTB6NGhaM1ZqQXNBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=337291873577
+Miro Board Invite: https://miro.com/welcomeonboard/TzRKS1NDbmNRRkJEUm9CZDFFMnJnR1NhTDk1ZW9XK1l1Wi9kcU1LREN2eEpGYkx1c2F4bm5KY3BGakZ2V2tiR0puNm5ucFBpczZXN281QTUzazZ5azNFamZSRkZFQndSMFkxZ0JyRHgxWHVzRDFqOWJway8ybTB6NGhaM1ZqQXNBS2NFMDFkcUNFSnM0d3FEN050ekl3PT0hdjE=?share_link_id=337291873577
+Trello Invite Link: https://trello.com/invite/b/67e0c06cdf25da53800f4988/ATTI79dc152e5414d7698e0c9f0b1ee8973f2FE7D771/gam-305-digital-game-development
 
 
 Choose a scenario and select the four additional elements you will include.
@@ -144,3 +145,62 @@ Choose a method for assigning and reporting on specific task items.
 Jonathan LeMasters
 David Valdivia
 Stone Williams
+
+
+
+
+Module 3: QA Test Plan
+	How will you test objects, levels, and games during the development cycle? Develop a schedule and include:
+		Play Test: Testing during the preproduction stage
+			Manual testing from the developers themselves for a rough outline of how well the game runs, how balanced it is, and how much fun it is to play.
+			This will be done throughout the entire development process until the Alpha Release.
+	Demo: Testing before marketing will demo the project
+		This testing will commence from the developers giving copies to other students, testers, family members, or friends for a closer look at the fine details and how the game can break.
+		Keeping a detailed reaction to every playtester by either recording it, standing nearby, or having the testers write down their experience will be a good way to track the testing aspect of the game.
+		These tests will be applied throughout the Beta stage of development with more testing and rough benchmarks of each stage of the game to see what elements are less favorable.
+		The final stretch of the project, before submission, will be one last round of testing with the same testers and new testers to gauge progress and other elements of the project.
+	Code Release: Checking the code release demo with the test plan
+		To test the code, comments will be thrown into the code for easy readability and more benchmarking to make sure that basic elements do not tank FPS.
+		Some ways to benchmark is to make sure that spawning objects and projectiles is optimized by either batching, spawn pooling, or other measures to keep certain elements loaded at all times to keep a consistent framerate.
+	What items will be tested? Include a checklist of items to be tested (pass/fail).
+		Framerate/frame drops
+			Are there any points where the game drops frames
+			Is the game running lower than 120FPS at any point when running it?
+		Player weapons
+			Balanced and not too under/over powered
+			Destructive and visually appealing
+			Are the weapons fun to use?
+		Enemy weapons
+			Not too destructive
+			Challenging gameplay
+		Enemy spawn rates
+			Making sure that the player does not get overrun by the amount of enemies on screen
+		Fun
+			Are the players having fun playing the game?
+		UI
+			Making sure the game pauses when the pause button is pressed
+			Ensuring the buttons work properly on every UI element
+	How will you update the test plan to reflect changes to the game and design document?
+		Using Miro and possibly Trello to mark which bugs are tracked
+		Marking every detail down in a visual format to make sure the project is easy to organize
+	How will bugs be reported?
+		Taking any resource of written, verbal, or visual feedback from testers and compile them.
+		Either adding an area on Miro or creating a Trello board to add entries of bugs
+	How will the bugs and their changes be tracked over time?
+		On Miro: changing the color of the box that it is contained in to mark the stage it is in (not completed, in-progress, and completed).
+		On Trello: moving each box to a different column for tracking what stage it is in (not completed, in-progress, and completed).
+
+
+Completed Tasks
+	Programming:
+		Completed movable enemies (Stone Williams)
+		Connected Player projectiles & Enemy projectiles with accurate health (Stone Williams)
+		Player Shooting (Stone Williams)
+	Modeling:
+		Start working on the player model (Jonathan LeMasters)
+		Start Enemy models. (Jonathan LeMasters)
+	Unity Manager/Level Designer:
+		Organize project into folders. (Stone Williams)
+	Project Management:
+		Created the QA Test Plan (Stone Williams)
+		Created the Trello (Stone Williams)
