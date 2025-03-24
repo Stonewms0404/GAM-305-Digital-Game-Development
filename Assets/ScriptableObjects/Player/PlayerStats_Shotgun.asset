@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0fcf0ed6da0fb40b0589389ccafde1, type: 3}
+  m_Name: PlayerStats_Shotgun
+  m_EditorClassIdentifier: 
+  speed: 6
+  dampener: 0.065
+  cameraDampener: 0.032
+  smoothener: 0.037
+  gunType: 1
+  shotsPerSecond: 1
+  playerProjectile: {fileID: 5706046740633881759, guid: 25871e35e6fb20f448960c44de9c13b4, type: 3}
+  shotsPerFire: 10
+  hitPoints: 50
+  lives: 3

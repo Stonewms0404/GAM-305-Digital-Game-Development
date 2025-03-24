@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34eb2eb1648fde408db2b9f629de5ca, type: 3}
+  m_Name: RangedStats_MachineGun
+  m_EditorClassIdentifier: 
+  movementSpeed: 6
+  dampener: 0.025
+  smoothener: 0.01
+  sightRange: 20
+  attackRange: 11.81
+  enemyProjectile: {fileID: 6166534817262336931, guid: 2f0d9e757ea243d41a40edb668d0f1ff, type: 3}
+  gunType: 4
+  shotsPerFire: 1
+  hitPoints: 50
+  despawnTimer: 3
+  attacksPerSecond: 20
+  searchRate: 1

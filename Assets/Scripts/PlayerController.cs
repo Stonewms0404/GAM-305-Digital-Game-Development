@@ -19,9 +19,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject projectileContainer;
     [Tooltip("The object that stores the scene's particles.")]
     [SerializeField] GameObject particleContainer;
-    [Tooltip("The player's projectile prefab.")]
-    [SerializeField] PlayerProjectile playerProjectile;
-
 
     [Tooltip("The player's stats and variables in a ScriptableObject.")]
     public PlayerStats stats;
@@ -30,18 +27,30 @@ public class PlayerController : MonoBehaviour
     InputAction MovementAction;
     [Tooltip("The player's action map for shooting.")]
     InputAction ShootingAction;
+    [Tooltip("The player's action map for the player's secondary.")]
+    InputAction SecondaryAction;
 
     [Tooltip("The timer counting between shots.")]
     float shootTimer;
     [Tooltip("The boolean telling whether the player can shoot.")]
     bool canShoot = true;
+
+    [Tooltip("The player's actual health. (Not to be confused with stats.hitpoints)")]
+    protected int health;
     #endregion
 
     #region Unity Functions
     private void Awake()
     {
-        MovementAction = playerInput.actions.FindAction("Move");
-        ShootingAction = playerInput.actions.FindAction("Attack");
+        health = stats.hitPoints;
+
+        MovementAction  = playerInput.actions.FindAction("Move");
+        ShootingAction  = playerInput.actions.FindAction("Attack");
+        SecondaryAction  = playerInput.actions.FindAction("Secondary");
+        mainCamera      = Camera.main.gameObject;
+
+        projectileContainer = GameObject.FindGameObjectWithTag("ProjectileContainer");
+        particleContainer   = GameObject.FindGameObjectWithTag("ParticleContainer");
     }
     void Update()
     {
@@ -49,9 +58,40 @@ public class PlayerController : MonoBehaviour
         LerpCamera();
         Shoot();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Projectile"))
+        {
+            Projectile projectile = other.GetComponent<Projectile>();
+            if (projectile.stats.type == ProjectileType.Enemy || projectile.stats.type == ProjectileType.Melee)
+            {
+                GotHit(-projectile.stats.attackDamage);
+                projectile.GotHit();
+                Debug.Log(health);
+            }
+            else if (projectile.stats.type == ProjectileType.PlayerHeal)
+            {
+                GotHit(projectile.stats.attackDamage);
+                projectile.GotHit();
+                Debug.Log(health);
+            }
+        }
+        if (other.tag.Equals("Enemy"))
+        {
+            Enemy enemy = other.GetComponent<Enemy>();
+            GotHit(-enemy.stats.enemyProjectile.stats.attackDamage / 3);
+            enemy.GotHit(-stats.playerProjectile.stats.attackDamage / 3);
+        }
+    }
     #endregion
 
     #region Other Functions
+    void Rotate()
+    {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out var hitInfo))
+            rb.rotation = Quaternion.LookRotation((hitInfo.point - transform.position).normalized);
+    }
     void Move()
     {
         if (MovementAction.ReadValue<Vector2>().normalized == Vector2.zero)
@@ -61,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 movement    = MovementAction.ReadValue<Vector2>().normalized;
         movement            = new(movement.x, 0, movement.y);
-        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, movement * stats.speed, stats.smoothener);
+        rb.linearVelocity   = Vector3.Lerp(rb.linearVelocity, movement * stats.speed, stats.smoothener);
     }
     void LerpCamera()
     {
@@ -70,23 +110,52 @@ public class PlayerController : MonoBehaviour
     }
     void Shoot()
     {
-        if (ShootingAction.ReadValue<float>() == 0)
+        canShoot = shootTimer <= 0f;
+        shootTimer -= Time.deltaTime;
+
+        if (stats.gunType == GunType.Pistol)
         {
             shootTimer = 1f / stats.shotsPerSecond;
             canShoot = true;
-            return;
         }
+
+        if (ShootingAction.ReadValue<float>() == 0)
+            return;
 
         if (canShoot)
         {
             shootTimer = 1f / stats.shotsPerSecond;
             canShoot = false;
-            Instantiate(playerProjectile, transform.position,
-                playerProjectile.transform.rotation, projectileContainer.transform);
+            switch (stats.gunType)
+            {
+                case GunType.Homing:
+                    for (int i = 0; i < Random.Range(1, stats.shotsPerFire + 1); i++)
+                        Instantiate(stats.playerProjectile, transform.position,
+                            stats.playerProjectile.transform.rotation, projectileContainer.transform);
+                    break;
+                case GunType.Shotgun:
+                    for (int i = 0; i < stats.shotsPerFire; i++)
+                        Instantiate(stats.playerProjectile, transform.position,
+                            stats.playerProjectile.transform.rotation, projectileContainer.transform);
+                    break;
+                default:
+                    Instantiate(stats.playerProjectile, transform.position,
+                        stats.playerProjectile.transform.rotation, projectileContainer.transform);
+                    break;
+            }
         }
-
-        canShoot = shootTimer <= 0f;
-        shootTimer -= Time.deltaTime;
+    }
+    public void GotHit(int value)
+    {
+        health += value;
+        if (health > stats.hitPoints)
+            health = stats.hitPoints;
+        else if (health <= 0)
+            Death();
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
     }
     #endregion
 }
