@@ -196,11 +196,14 @@ Completed Tasks
 		Completed movable enemies (Stone Williams)
 		Connected Player projectiles & Enemy projectiles with accurate health (Stone Williams)
 		Player Shooting (Stone Williams)
+		Created Basic UI (David Valdivia)
+		Created Main Menu Screen (David Valdivia)
 	Modeling:
 		Start working on the player model (Jonathan LeMasters)
 		Start Enemy models. (Jonathan LeMasters)
 	Unity Manager/Level Designer:
 		Organize project into folders. (Stone Williams)
 	Project Management:
+		Created Discord Server (David Valdivia
 		Created the QA Test Plan (Stone Williams)
 		Created the Trello (Stone Williams)
