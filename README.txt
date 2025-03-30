@@ -39,6 +39,7 @@ MODULE 2:
 		(T/W) Create plan, repository, timeline, and work distribution. (David Valdivia)
 		(T/W) Start on working with Unity and Modeling software to get a head start on development. (Jonathan LeMasters, David Valdivia, Stone Williams)
 		(T/W) List what models need to be made before starting on the bulk modeling. (Jonathan LeMasters, David Valdivia, Stone Williams)
+		Wasn't on the team yet(Darren Gass)
  Programming:
 		BS - Start on the Player movement and functionality. (Stone Williams)
 
