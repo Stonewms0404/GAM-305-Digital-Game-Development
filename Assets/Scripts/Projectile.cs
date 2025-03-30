@@ -82,8 +82,21 @@ public abstract class Projectile : MonoBehaviour
                     break;
             }
         }
+        else if (other.tag.Equals("Tower"))
+        {
+            if (stats.type == ProjectileType.Player)
+            {
+                Tower tower = other.GetComponent<Tower>();
+                tower.GotHit(-stats.attackDamage);
+                GotHit();
+            }
+        }
+        else if (other.tag.Equals("Enviornment"))
+        {
+            for (int i = 0; i < pierces; i++)
+                GotHit();
+        }
     }
-
     public void GotHit()
     {
         pierces -= 1;
