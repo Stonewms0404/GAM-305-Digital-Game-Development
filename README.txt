@@ -145,7 +145,7 @@ Choose a method for assigning and reporting on specific task items.
 Jonathan LeMasters
 David Valdivia
 Stone Williams
-
+Darren Gass
 
 
 
@@ -201,6 +201,7 @@ Completed Tasks
 	Modeling:
 		Start working on the player model (Jonathan LeMasters)
 		Start Enemy models. (Jonathan LeMasters)
+		Start working on concept art (Darren Gass)
 	Unity Manager/Level Designer:
 		Organize project into folders. (Stone Williams)
 	Project Management:
