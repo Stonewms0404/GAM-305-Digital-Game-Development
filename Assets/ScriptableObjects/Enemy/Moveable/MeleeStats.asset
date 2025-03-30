@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34eb2eb1648fde408db2b9f629de5ca, type: 3}
-  m_Name: RangedStats_AssaultRifle
+  m_Name: MeleeStats
   m_EditorClassIdentifier: 
-  movementSpeed: 6
-  dampener: 0.025
-  smoothener: 0.01
+  movementSpeed: 10
+  dampener: 0.128
+  smoothener: 0.025
   sightRange: 20
-  attackRange: 11.81
-  enemyProjectile: {fileID: 6166534817262336931, guid: 4245748a5f29ff94491756376fd4fdf1, type: 3}
-  gunType: 2
+  attackRange: 2.74
+  enemyProjectile: {fileID: 1554797586244035750, guid: 44959690dca88fe4a9c3946394cc3545, type: 3}
+  gunType: 5
   shotsPerFire: 1
   hitPoints: 50
-  despawnTimer: 3
-  attacksPerSecond: 5.6
+  despawnTimer: 2
+  attacksPerSecond: 0.5
   searchRate: 1

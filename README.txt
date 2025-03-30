@@ -39,6 +39,7 @@ MODULE 2:
 		(T/W) Create plan, repository, timeline, and work distribution. (David Valdivia)
 		(T/W) Start on working with Unity and Modeling software to get a head start on development. (Jonathan LeMasters, David Valdivia, Stone Williams)
 		(T/W) List what models need to be made before starting on the bulk modeling. (Jonathan LeMasters, David Valdivia, Stone Williams)
+		Wasn't on the team yet(Darren Gass)
  Programming:
 		BS - Start on the Player movement and functionality. (Stone Williams)
 
@@ -145,7 +146,7 @@ Choose a method for assigning and reporting on specific task items.
 Jonathan LeMasters
 David Valdivia
 Stone Williams
-
+Darren Gass
 
 
 
@@ -201,6 +202,7 @@ Completed Tasks
 	Modeling:
 		Start working on the player model (Jonathan LeMasters)
 		Start Enemy models. (Jonathan LeMasters)
+		Start working on concept art (Darren Gass)
 	Unity Manager/Level Designer:
 		Organize project into folders. (Stone Williams)
 	Project Management:

@@ -7,6 +7,9 @@ public class RangedEnemy : Enemy
 
     #endregion
 
+    #region Unity Functions
+    #endregion
+
     #region Other Functions
     protected override void Attack()
     {

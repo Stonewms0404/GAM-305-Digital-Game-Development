@@ -9,4 +9,5 @@ public class TowerStats : ScriptableObject
     public int hitPoints;
     [Tooltip("How far can the tower see.")]
     public float visualRange;
+
 }
