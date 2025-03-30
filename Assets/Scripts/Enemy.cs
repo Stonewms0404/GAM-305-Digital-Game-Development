@@ -7,6 +7,7 @@ using UnityEngine.Scripting.APIUpdating;
 public abstract class Enemy : MonoBehaviour
 {
     #region Variables
+    [SerializeField] protected EnemyStats[] listedStats;
     [Tooltip("The enemy's stats and variables in a ScriptableObject.")]
     public EnemyStats stats;
     [Tooltip("The enemy's object for tracking.")]
@@ -40,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
     #region Unity Functions
     private void Start()
     {
+        stats = listedStats[Random.Range(0, listedStats.Length)];
         health = stats.hitPoints;
 
         projectileContainer = GameObject.FindGameObjectWithTag("ProjectileContainer");

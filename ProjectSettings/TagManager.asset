@@ -9,6 +9,9 @@ TagManager:
   - ProjectileContainer
   - ParticleContainer
   - Enemy
+  - Tower
+  - EnemyContainer
+  - Enviornment
   layers:
   - Default
   - TransparentFX

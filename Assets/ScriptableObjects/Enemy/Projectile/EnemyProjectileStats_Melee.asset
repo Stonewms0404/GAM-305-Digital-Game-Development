@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 2
   homing: 0
   speed: 25
-  dampener: 0.005
+  dampener: 0.014
   attackDamage: 10
   spread: 2.56
   pierce: 5

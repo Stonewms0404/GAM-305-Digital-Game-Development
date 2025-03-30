@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb10fbf1904b02f41b64c08f9e56c445, type: 3}
-  m_Name: EnemyProjectileStats_Homing
+  m_Script: {fileID: 11500000, guid: a683437666ffeee4f85d675271916dd3, type: 3}
+  m_Name: TurretTowerStats
   m_EditorClassIdentifier: 
-  type: 2
-  homing: 1
-  speed: 19
-  dampener: 0.005
-  attackDamage: 1
-  spread: 2.56
-  pierce: 2
-  lifeTimer: 2.2
+  useRate: 1
+  hitPoints: 50
+  visualRange: 20
