@@ -37,12 +37,15 @@ public class PlayerController : MonoBehaviour
 
     [Tooltip("The player's actual health. (Not to be confused with stats.hitpoints)")]
     protected int health;
+    //public HealthBarScript healthBar; //SHINE ADDED FOR TESTING
+
     #endregion
 
     #region Unity Functions
     private void Awake()
     {
         health = stats.hitPoints;
+        //healthBar.SetMaxHealth(health);  //SHINE ADDED FOR TESTING
 
         MovementAction  = playerInput.actions.FindAction("Move");
         ShootingAction  = playerInput.actions.FindAction("Attack");
@@ -57,6 +60,12 @@ public class PlayerController : MonoBehaviour
         Move();
         LerpCamera();
         Shoot();
+        /*
+        if(playerInput.GetKeyDown(KeyCode.Space)) //SHINE ADDED FOR TESTING
+        {
+            TakeDamage(5);
+        }
+        */
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -76,6 +85,17 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(health);
             }
         }
+        /*void TakeDamage(int damage)  //SHINE ADDED FOR TESTING
+        {
+            health -= damage;
+            healthBar.SetHealth(health);
+            if (health <= 0)
+            {
+                health = 0;
+                Die();
+            }
+        }
+        */
         if (other.tag.Equals("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
