@@ -93,7 +93,7 @@ public abstract class Projectile : MonoBehaviour
         }
         else if (other.tag.Equals("Enviornment"))
         {
-            for (int i = 0; i < pierces; i++)
+            for (int i = pierces; i >= 0; i--)
                 GotHit();
         }
     }
