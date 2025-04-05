@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
+        Rotate();
         LerpCamera();
         Shoot();
         /*

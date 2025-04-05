@@ -209,3 +209,48 @@ Completed Tasks
 		Created Discord Server (David Valdivia
 		Created the QA Test Plan (Stone Williams)
 		Created the Trello (Stone Williams)
+
+
+
+Module 4: Alpha Release
+	What parts of the testing process did the team perceive to go well?
+		Character movement and enemy movement and attacks work as intended.
+		Enemy behavior, including shooting, spawning, and melee attacks, all work great.
+	How were bugs identified and corrected?
+		In testing, we identified that the Player script was not working correctly
+		when we added it to a new scene, as it could move around, but wasn't able to shoot.
+		We figured out that it was missing the other components in the scene it was relying
+		on to spawn projectiles, so we were able to quickly fix the issue by adding those
+		components.
+	In terms of the QA and testing process, what would you do differently to improve the process?
+		By completing rough drafts of the important code to test early, we could have more
+		time to test the code and find important game-breaking bugs earlier, giving us more
+		time to focus on fixing them.
+	What tools (chosen in Module Two) did you find successful in the development of your Alpha
+	project? Why?
+		Blender has been a great tool to use for creating the models, because it's very easy
+		to import from Blender into Unity. Organizational tools like Miro and Discord have
+		also been a lot of help to us for organizing and collaborating.
+	Were there any tools or techniques that you did not find helpful in the success of your
+	project development? Why?
+		A tool that was not as helpful to us in our project development is Trello, as we
+		have done most of our organizing, collaboration, and planning in both the Discord
+		and Miro. Miro especially has been a huge help in brainstorming ideas together and
+		writing down our timeline.
+	How did the team approach to the initial analysis of the game design document contribute
+	to the decision to use these tools and techniques?
+		We wanted to use the tools we were all familiar with, and most comfortable using.
+		This is why we chose to build the game in unity and make the models in Blender.
+Completed Tasks
+	Programming:
+		Towers shooting & spawning proper enemies & bullets (Stone Williams)
+		Player is able to shoot properly within the MainScene (Stone Williams)
+		Player can pick up a key that opens the gate at the end (Jonathan LeMasters)
+	Modeling:
+		Tower models finished (Jonathan LeMasters)
+		Turret model finished (Jonathan LeMasters)
+		Shield model finished (Jonathan LeMasters)
+		Player, enemy, tower, and turret models added to the game (Jonathan LeMasters)
+	Unity Manager/Level Designer:
+		Created full level layout with walls (Jonathan LeMasters)
+		Added enemy spawners and turrets to the level (Jonathan LeMasters)
