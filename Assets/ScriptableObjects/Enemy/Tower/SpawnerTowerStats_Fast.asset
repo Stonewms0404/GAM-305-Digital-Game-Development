@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb10fbf1904b02f41b64c08f9e56c445, type: 3}
-  m_Name: PlayerProjectileStats_Homing
+  m_Script: {fileID: 11500000, guid: a683437666ffeee4f85d675271916dd3, type: 3}
+  m_Name: SpawnerTowerStats_Fast
   m_EditorClassIdentifier: 
-  type: 0
-  homing: 1
-  speed: 8
-  dampener: 0.005
-  attackDamage: 7
-  spread: 2.56
-  pierce: 1
-  lifeTimer: 2.63
+  useRate: 10
+  hitPoints: 100
+  visualRange: 30

@@ -14,11 +14,18 @@ public abstract class Enemy : MonoBehaviour
     PlayerController? player;
     [Tooltip("The enemy's Rigidbody component for movement.")]
     public Rigidbody rb;
+    [SerializeField] Pickup[] pickups;
 
     [Tooltip("The object that stores the scene's projectiles.")]
     protected GameObject projectileContainer;
     [Tooltip("The object that stores the scene's particles.")]
     protected GameObject particleContainer;
+    [Tooltip("The object that stores the scene's pickups.")]
+    protected GameObject pickupContainer;
+    [Tooltip("Particles that spawn when the enemy is hit.")]
+    [SerializeField] GameObject hitParticles;
+    [Tooltip("Particles that spawn when the enemy is killed.")]
+    [SerializeField] GameObject deathParticles;
 
     [Tooltip("The direction the enemy is facing saved between functions.")]
     protected Vector3 direction;
@@ -34,7 +41,7 @@ public abstract class Enemy : MonoBehaviour
     [Tooltip("The boolean that checks if the despawn timer has been set or not.")]
     bool startedDespawn;
 
-    [Tooltip("The enemy's actual health. (Not to be confused with stats.health)")]
+    [Tooltip("The enemy's actual health. (Not to be confused with stats.hitPoints)")]
     protected int health;
     #endregion
 
@@ -46,6 +53,7 @@ public abstract class Enemy : MonoBehaviour
 
         projectileContainer = GameObject.FindGameObjectWithTag("ProjectileContainer");
         particleContainer   = GameObject.FindGameObjectWithTag("ParticleContainer");
+        pickupContainer = GameObject.FindGameObjectWithTag("PickupContainer");
     }
     void Update()
     {
@@ -58,6 +66,7 @@ public abstract class Enemy : MonoBehaviour
         else
         {
             Vector3 offset = player.transform.position - rb.transform.position;
+            offset.y = 0;
             direction = offset.normalized;
             float distance = offset.magnitude;
             if (distance <= stats.attackRange)
@@ -108,7 +117,7 @@ public abstract class Enemy : MonoBehaviour
         if (player)
         {
             rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
-
+            direction.y = 0;
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * stats.movementSpeed, stats.smoothener);
             return;
         }
@@ -117,6 +126,11 @@ public abstract class Enemy : MonoBehaviour
     }
     public void GotHit(int value)
     {
+        if (hitParticles)
+        {
+            var particlesObj = Instantiate(hitParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
         health += value;
         if (health < 0)
             Death();
@@ -141,6 +155,16 @@ public abstract class Enemy : MonoBehaviour
     }
     protected void Death()
     {
+        if (deathParticles)
+        {
+            var particlesObj = Instantiate(deathParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
+        if (Random.Range(0f, 1f) < 0.2f)
+        {
+            Pickup pickup = Instantiate(pickups[Random.Range(0, pickups.Length)], transform.position, Quaternion.identity, pickupContainer.transform);
+            Destroy(pickup.gameObject, 5);
+        }
         Destroy(gameObject);
     }
     #endregion

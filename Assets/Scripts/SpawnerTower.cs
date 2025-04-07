@@ -23,12 +23,12 @@ public class SpawnerTower : Tower
             canSpawn = false;
 
             Vector3 spawnPosition = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * spawnRadius + transform.position;
-            Enemy enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Length)];
             for (int i = 0; i < Random.Range(1, 5); i++)
             {
-                Enemy enemyObj = Instantiate(enemy, enemyContainer.transform);
-                enemyObj.rb.position = spawnPosition +
-                    new Vector3(i * (i % 2 == 1 ? -1 : 1), 0, i * (i % 2 == 1 ? 1 : -1));
+                Enemy enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Length)];
+                Vector3 position = spawnPosition +
+                    new Vector3(i * (i % 2 == 1 ? -1 : 1), -.5f, i * (i % 2 == 1 ? 1 : -1));
+                Enemy enemyObj = Instantiate(enemy, position, Quaternion.identity, enemyContainer.transform);
             }
         }
         else

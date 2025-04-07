@@ -2,6 +2,8 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.ParticleSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +16,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [Tooltip("The player's action map for movement and shooting.")]
     [SerializeField] PlayerInput playerInput;
+    [Tooltip("The object that the player's bullets will spawn from.")]
+    [SerializeField] GameObject shootPositionObj;
+    [Tooltip("Particles that spawn when the player is hit.")]
+    [SerializeField] GameObject hitParticles;
+    [Tooltip("Particles that spawn when the player is healed.")]
+    [SerializeField] GameObject healParticles;
+    [Tooltip("Particles that spawn when the player is killed.")]
+    [SerializeField] GameObject deathParticles;
 
     [Tooltip("The object that stores the scene's projectiles.")]
     [SerializeField] GameObject projectileContainer;
@@ -33,7 +43,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The timer counting between shots.")]
     float shootTimer;
     [Tooltip("The boolean telling whether the player can shoot.")]
-    bool canShoot = true;
+    bool canShoot = true, holdingFire = false;
 
     [Tooltip("The player's actual health. (Not to be confused with stats.hitpoints)")]
     protected int health;
@@ -86,22 +96,26 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(health);
             }
         }
-        /*void TakeDamage(int damage)  //SHINE ADDED FOR TESTING
-        {
-            health -= damage;
-            healthBar.SetHealth(health);
-            if (health <= 0)
-            {
-                health = 0;
-                Die();
-            }
-        }
-        */
-        if (other.tag.Equals("Enemy"))
+        else if (other.tag.Equals("Enemy"))
         {
             Enemy enemy = other.GetComponent<Enemy>();
             GotHit(-enemy.stats.enemyProjectile.stats.attackDamage / 3);
             enemy.GotHit(-stats.playerProjectile.stats.attackDamage / 3);
+        }
+        else if (other.tag.Equals("Pickup"))
+        {
+            Pickup pickup = other.GetComponent<Pickup>();
+            switch (pickup.type)
+            {
+                case PickupType.Health:
+                    GotHit(pickup.health);
+                    break;
+                case PickupType.Ammo: break;
+                case PickupType.GunChange:
+                    stats = pickup.pickupStats;
+                    break;
+            }
+            pickup.PickedUp();
         }
     }
     #endregion
@@ -111,7 +125,11 @@ public class PlayerController : MonoBehaviour
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out var hitInfo))
-            rb.rotation = Quaternion.LookRotation((hitInfo.point - transform.position).normalized);
+        {
+            Vector3 direction = (hitInfo.point - transform.position).normalized;
+            direction.y = 0;
+            rb.rotation = Quaternion.LookRotation(direction);
+        }
     }
     void Move()
     {
@@ -134,14 +152,18 @@ public class PlayerController : MonoBehaviour
         canShoot = shootTimer <= 0f;
         shootTimer -= Time.deltaTime;
 
-        if (stats.gunType == GunType.Pistol)
+        if (ShootingAction.ReadValue<float>() == 0)
+        {
+            holdingFire = false;
+            return;
+        }
+
+        if (stats.gunType == GunType.Pistol && !holdingFire)
         {
             shootTimer = 1f / stats.shotsPerSecond;
             canShoot = true;
+            holdingFire = true;
         }
-
-        if (ShootingAction.ReadValue<float>() == 0)
-            return;
 
         if (canShoot)
         {
@@ -150,17 +172,17 @@ public class PlayerController : MonoBehaviour
             switch (stats.gunType)
             {
                 case GunType.Homing:
-                    for (int i = 0; i < Random.Range(1, stats.shotsPerFire + 1); i++)
-                        Instantiate(stats.playerProjectile, transform.position,
+                    for (int i = 0; i < Random.Range(1, stats.shotsPerFire); i++)
+                        Instantiate(stats.playerProjectile, shootPositionObj.transform.position,
                             stats.playerProjectile.transform.rotation, projectileContainer.transform);
                     break;
                 case GunType.Shotgun:
                     for (int i = 0; i < stats.shotsPerFire; i++)
-                        Instantiate(stats.playerProjectile, transform.position,
+                        Instantiate(stats.playerProjectile, shootPositionObj.transform.position,
                             stats.playerProjectile.transform.rotation, projectileContainer.transform);
                     break;
                 default:
-                    Instantiate(stats.playerProjectile, transform.position,
+                    Instantiate(stats.playerProjectile, shootPositionObj.transform.position,
                         stats.playerProjectile.transform.rotation, projectileContainer.transform);
                     break;
             }
@@ -168,15 +190,40 @@ public class PlayerController : MonoBehaviour
     }
     public void GotHit(int value)
     {
-        health += value;
-        if (health > stats.hitPoints)
-            health = stats.hitPoints;
-        else if (health <= 0)
+        if (hitParticles && value < 0)
+        {
+            var particlesObj = Instantiate(hitParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
+        else if (healParticles && value < 0)
+        {
+            var particlesObj = Instantiate(healParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
+        health = Mathf.Clamp(health + value, 0, stats.hitPoints);
+        if (health <= 0)
             Death();
     }
     public void Death()
     {
+        if (deathParticles)
+        {
+            var particlesObj = Instantiate(deathParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
         Destroy(gameObject);
     }
     #endregion
+
+    /*void TakeDamage(int damage)  //SHINE ADDED FOR TESTING
+    {
+        health -= damage;
+        healthBar.SetHealth(health);
+        if (health <= 0)
+        {
+            health = 0;
+            Die();
+        }
+    }
+    */
 }

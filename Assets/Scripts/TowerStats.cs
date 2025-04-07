@@ -9,5 +9,6 @@ public class TowerStats : ScriptableObject
     public int hitPoints;
     [Tooltip("How far can the tower see.")]
     public float visualRange;
-
+    [Tooltip("Particles that spawn when the ability is used.")]
+    public GameObject particles;
 }

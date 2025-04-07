@@ -110,7 +110,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1.82, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8744026880283550557
 Rigidbody:
@@ -155,9 +155,13 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   rb: {fileID: 8744026880283550557}
   playerInput: {fileID: 2700705337977623691}
+  shootPositionObj: {fileID: 8805986732843671786}
+  hitParticles: {fileID: 0}
+  healParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
   projectileContainer: {fileID: 0}
   particleContainer: {fileID: 0}
-  stats: {fileID: 11400000, guid: 04ef7977ad3f2bd439288fc11b07bf19, type: 2}
+  stats: {fileID: 11400000, guid: a0a085153a3eea847881a5af709578ef, type: 2}
 --- !u!114 &2700705337977623691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +192,37 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!1 &8805986732843671786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5894123713150133168}
+  m_Layer: 0
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5894123713150133168
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8805986732843671786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01803, y: -0.0308, z: 0.0214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1423604100181521483}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1462281331179688864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -254,7 +289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b44ed325addf4742904733cc72e8a8b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5894123713150133168}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b44ed325addf4742904733cc72e8a8b, type: 3}
 --- !u!4 &1423604100181521483 stripped

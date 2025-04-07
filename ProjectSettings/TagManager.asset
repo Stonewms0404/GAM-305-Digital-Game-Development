@@ -12,6 +12,9 @@ TagManager:
   - Tower
   - EnemyContainer
   - Enviornment
+  - TowerContainer
+  - Pickup
+  - PickupContainer
   layers:
   - Default
   - TransparentFX

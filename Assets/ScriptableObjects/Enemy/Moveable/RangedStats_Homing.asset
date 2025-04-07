@@ -20,7 +20,7 @@ MonoBehaviour:
   enemyProjectile: {fileID: 6166534817262336931, guid: 917bb6f678dfea64088f7b3bd678c864, type: 3}
   gunType: 3
   shotsPerFire: 1
-  hitPoints: 50
+  hitPoints: 15
   despawnTimer: 3
   attacksPerSecond: 1
   searchRate: 1
