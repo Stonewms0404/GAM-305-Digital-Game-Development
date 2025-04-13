@@ -5,6 +5,10 @@ public abstract class Projectile : MonoBehaviour
     #region Variables
     [Tooltip("The projectile's Rigidbody component for movement.")]
     public Rigidbody rb;
+    [Tooltip("Particles that spawn when the projectile gets hit.")]
+    public GameObject particles;
+    [Tooltip("The object that stores the scene's particles.")]
+    [SerializeField] GameObject particleContainer;
 
     [Tooltip("The projectile's stats and variables in a ScriptableObject.")]
     public ProjectileStats stats;
@@ -22,6 +26,7 @@ public abstract class Projectile : MonoBehaviour
     #region Unity Functions
     protected void Start()
     {
+        particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
         pierces = stats.pierce;
         if (stats.type == ProjectileType.Melee)
             return;
@@ -93,7 +98,9 @@ public abstract class Projectile : MonoBehaviour
         }
         else if (other.tag.Equals("Enviornment"))
         {
-            for (int i = 0; i < pierces; i++)
+            if (stats.type == ProjectileType.Melee)
+                return;
+            for (int i = pierces; i > 0; i--)
                 GotHit();
         }
     }
@@ -102,6 +109,11 @@ public abstract class Projectile : MonoBehaviour
         pierces -= 1;
         if (pierces <= 0)
             Destroy(gameObject);
+        if (particles)
+        {
+            var particlesObj = Instantiate(particles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
     }
     #endregion
 }

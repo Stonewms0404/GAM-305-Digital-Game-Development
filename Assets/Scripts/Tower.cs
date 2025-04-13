@@ -11,10 +11,16 @@ public abstract class Tower : MonoBehaviour
     protected GameObject particleContainer;
     [Tooltip("The object that stores the scene's enemies.")]
     protected GameObject enemyContainer;
+    [Tooltip("The object that stores the scene's towers.")]
+    protected TowerContainer towerContainer;
+    [Tooltip("Particles that spawn when the tower is hit.")]
+    [SerializeField] GameObject hitParticles;
+    [Tooltip("Particles that spawn when the tower is killed.")]
+    [SerializeField] GameObject deathParticles;
 
     protected int health;
     protected bool playerInRange;
-    GameObject? player;
+    protected GameObject? player;
     #endregion
 
     #region Unity Functions
@@ -26,6 +32,7 @@ public abstract class Tower : MonoBehaviour
         projectileContainer = GameObject.FindGameObjectWithTag("ProjectileContainer");
         particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer");
+        towerContainer = GameObject.FindGameObjectWithTag("TowerContainer").GetComponent<TowerContainer>();
     }
     private void Update()
     {
@@ -42,6 +49,11 @@ public abstract class Tower : MonoBehaviour
     protected abstract void UseAbility();
     public void GotHit(int value)
     {
+        if (hitParticles)
+        {
+            var particlesObj = Instantiate(hitParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
         health += value;
         if (health > stats.hitPoints)
             health = stats.hitPoints;
@@ -50,6 +62,12 @@ public abstract class Tower : MonoBehaviour
     }
     public void Death()
     {
+        if (deathParticles)
+        {
+            var particlesObj = Instantiate(deathParticles, transform.position, Quaternion.identity, particleContainer.transform);
+            Destroy(particlesObj, 5f);
+        }
+        towerContainer.SubtractTower();
         Destroy(gameObject);
     }
     #endregion

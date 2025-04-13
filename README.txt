@@ -254,3 +254,49 @@ Completed Tasks
 	Unity Manager/Level Designer:
 		Created full level layout with walls (Jonathan LeMasters)
 		Added enemy spawners and turrets to the level (Jonathan LeMasters)
+
+
+
+Module 5: Beta Release
+	What parts of the plan did the team perceive to go well in relation to the last stage 
+	evaluation?
+		We have a great beta of the game working right now. Most of the major things we 
+		had planned are implemented and working great, and there are only very minimal 
+		bugs.
+	What parts of the plan did the team perceive to go wrong in relation to the last stage
+	evaluation?
+		We aren't as far along in the development process as we had originally hoped,
+		so it is unlikely we'll be able to add any of the extra nice-to-have features
+		we were brainstorming.
+	How were the previous evaluations integrated into this latest stage?
+		We encountered issues such as the player not being able to shoot or the towers
+		being able to shoot into the ground and come back up to hit the player. This
+		was resolved by using Unity's methods of checking the tags on the objects that
+		were colliding to ensure the projectiles destroy on impact with the ground and
+		other wall objects.
+	What would you do differently to improve the collaboration or development process?
+		A better system of communication and vocal meetings would be a better way of
+		collaboration and making sure we all get progress done during the week.
+	Were there any tools or techniques that you did not find helpful in the success of your
+	project development? Why?
+		We have been trying to add emission to the materials through the use of Blender's
+		material editor, but ran into problems trying to import the materials into Unity.
+		Future materials will probably need to be made using Unity, instead of trying to
+		import them from Blender.
+	Identify the completed stage of development of the intended Beta and address the project
+	schedule to meet Final Release development deadline.
+		The functionality of the game is completed and we are looking to completely test
+		everything this upcoming week for the final release to find any bugs and add final
+		details to balance the game as a whole.
+Completed Tasks
+	Programming:
+		Towers shooting & spawning proper enemies & bullets (Stone Williams)
+		Player is able to shoot properly within the MainScene (Stone Williams)
+		Added Health Bar Prefab (David Valdivia)
+		Attached Health Bar Prefab to player (David Valdivia)
+		Made sure all models turn when shooting and moving towards the player
+		(Stone Williams)
+		Created the pickups for each weapon type and health. (Stone Williams)
+	Modeling:
+		Added floor textures and created a new skybox (Jonathan LeMasters)
+		Created and added power-up models (Jonathan LeMasters)

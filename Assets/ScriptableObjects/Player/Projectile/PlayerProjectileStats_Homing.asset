@@ -16,7 +16,7 @@ MonoBehaviour:
   homing: 1
   speed: 8
   dampener: 0.005
-  attackDamage: 1
+  attackDamage: 7
   spread: 2.56
   pierce: 1
   lifeTimer: 2.63
