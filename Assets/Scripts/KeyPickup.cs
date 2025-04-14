@@ -10,12 +10,14 @@ public class KeyPickup : MonoBehaviour
 
     private void Start()
     {
-        particles = GameObject.FindGameObjectWithTag("ParticleContainer");
+        particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
+        int towerCount = GameObject.FindGameObjectsWithTag("Tower").Length;
+        gameObject.SetActive(towerCount <= 0);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag.Equals("Player"))
         {
             if (particles)
             {

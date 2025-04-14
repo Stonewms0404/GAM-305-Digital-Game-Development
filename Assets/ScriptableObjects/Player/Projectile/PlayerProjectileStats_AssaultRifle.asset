@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   homing: 0
-  speed: 25
-  dampener: 0.005
+  speed: 50
+  dampener: 0.012
   attackDamage: 1
   spread: 0.34
   pierce: 5
-  lifeTimer: 2.63
+  lifeTimer: 1.26

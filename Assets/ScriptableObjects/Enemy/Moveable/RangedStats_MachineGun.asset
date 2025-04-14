@@ -22,5 +22,5 @@ MonoBehaviour:
   shotsPerFire: 1
   hitPoints: 15
   despawnTimer: 3
-  attacksPerSecond: 20
+  attacksPerSecond: 14.2
   searchRate: 1

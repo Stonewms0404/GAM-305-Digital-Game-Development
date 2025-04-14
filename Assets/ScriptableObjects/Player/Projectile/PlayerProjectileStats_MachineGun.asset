@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   homing: 0
-  speed: 27
+  speed: 33
   dampener: 0.005
   attackDamage: 1
   spread: 2.06

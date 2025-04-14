@@ -160,9 +160,17 @@ public abstract class Enemy : MonoBehaviour
             var particlesObj = Instantiate(deathParticles, transform.position, Quaternion.identity, particleContainer.transform);
             Destroy(particlesObj, 5f);
         }
-        if (Random.Range(0f, 1f) < 0.2f)
+        if (Random.Range(0f, 1f) < 0.2f && player)
         {
-            Pickup pickup = Instantiate(pickups[Random.Range(0, pickups.Length)], transform.position, Quaternion.identity, pickupContainer.transform);
+            PlayerController pController = player.GetComponent<PlayerController>();
+            Pickup pickup;
+            do
+            {
+                pickup = pickups[Random.Range(0, pickups.Length)];
+            } while (pickup.pickupStats == pController.stats);
+            Vector3 position = transform.position;
+            position.y = player.transform.position.y;
+            pickup = Instantiate(pickup, transform.position, Quaternion.identity, pickupContainer.transform);
             Destroy(pickup.gameObject, 5);
         }
         Destroy(gameObject);

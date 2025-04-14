@@ -5,6 +5,8 @@ public abstract class Tower : MonoBehaviour
     #region Variables
     public TowerStats stats;
     [SerializeField] protected TowerStats[] listedStats;
+    [SerializeField] Pickup[] pickups;
+    [SerializeField] GameObject pickupLocation;
     [Tooltip("The object that stores the scene's projectiles.")]
     protected GameObject projectileContainer;
     [Tooltip("The object that stores the scene's particles.")]
@@ -13,6 +15,8 @@ public abstract class Tower : MonoBehaviour
     protected GameObject enemyContainer;
     [Tooltip("The object that stores the scene's towers.")]
     protected TowerContainer towerContainer;
+    [Tooltip("The object that stores the scene's pickups.")]
+    protected GameObject pickupContainer;
     [Tooltip("Particles that spawn when the tower is hit.")]
     [SerializeField] GameObject hitParticles;
     [Tooltip("Particles that spawn when the tower is killed.")]
@@ -33,6 +37,7 @@ public abstract class Tower : MonoBehaviour
         particleContainer = GameObject.FindGameObjectWithTag("ParticleContainer");
         enemyContainer = GameObject.FindGameObjectWithTag("EnemyContainer");
         towerContainer = GameObject.FindGameObjectWithTag("TowerContainer").GetComponent<TowerContainer>();
+        pickupContainer = GameObject.FindGameObjectWithTag("PickupContainer");
     }
     private void Update()
     {
@@ -62,13 +67,21 @@ public abstract class Tower : MonoBehaviour
     }
     public void Death()
     {
+        PlayerController pController = player.GetComponent<PlayerController>();
+        Pickup pickup;
+        do {
+            pickup = pickups[Random.Range(0, pickups.Length)];
+        } while (pickup.pickupStats == pController.stats);
+        pickup = Instantiate(pickup, pickupLocation.transform.position, Quaternion.identity, pickupContainer.transform);
+        Destroy(pickup.gameObject, 5);
+
         if (deathParticles)
         {
             var particlesObj = Instantiate(deathParticles, transform.position, Quaternion.identity, particleContainer.transform);
             Destroy(particlesObj, 5f);
         }
-        towerContainer.SubtractTower();
         Destroy(gameObject);
+        towerContainer.SubtractTower();
     }
     #endregion
 }

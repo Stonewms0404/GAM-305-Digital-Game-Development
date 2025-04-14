@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1493315901510541444}
+  - {fileID: 1630991544381485744}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3019156178521652260
@@ -125,10 +126,51 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: d0b247304617ea74183078c1a27e98f3, type: 2}
   listedStats:
   - {fileID: 11400000, guid: d0b247304617ea74183078c1a27e98f3, type: 2}
+  pickups:
+  - {fileID: 173363714588439803, guid: 426872b6c3f7f764288809749f82b736, type: 3}
+  - {fileID: 7006017326218931271, guid: a0d72fbdfa372b64c8aada0b16413517, type: 3}
+  - {fileID: 6096940732088440227, guid: 1fb2d181a6d48da428cce6e4b8574267, type: 3}
+  - {fileID: 8130384954317253143, guid: fec7e45c6fb845c4e9f7f99d7696c17d, type: 3}
+  - {fileID: 8508940959985513474, guid: 2a1bcf0d64245b74d803570c269ad3d9, type: 3}
+  - {fileID: 7808278225709047885, guid: 54f5f0aee06281a47b8753fa571e9f3c, type: 3}
+  pickupLocation: {fileID: 5836280356692077540}
+  hitParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
   spawnRadius: 3
   enemiesToSpawn:
   - {fileID: 8922035453029075330, guid: 6ca69e641ce76ba4d824f0e61200a499, type: 3}
   - {fileID: 4541832798238721751, guid: 49ac8db8a1cdda040a12389e02087bca, type: 3}
+--- !u!1 &5836280356692077540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1630991544381485744}
+  m_Layer: 0
+  m_Name: SpawnPickupLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1630991544381485744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836280356692077540}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6349280189947190768}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1383708565650737007
 PrefabInstance:
   m_ObjectHideFlags: 0

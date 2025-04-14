@@ -34,7 +34,7 @@ public abstract class Projectile : MonoBehaviour
         speed = stats.speed;
         var (success, pos) = GetPosition();
         point = pos;
-        point.y = 0;
+        point.y = transform.position.y;
         if (success)
         {
             AimTowardsPosition(point);
@@ -44,6 +44,7 @@ public abstract class Projectile : MonoBehaviour
                 rb.linearVelocity = direction * speed * 2;
             }
         }
+        else Destroy(gameObject);
     }
     private void Update()
     {

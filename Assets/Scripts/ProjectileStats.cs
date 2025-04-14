@@ -17,7 +17,7 @@ public class ProjectileStats : ScriptableObject
     [Range(1, 10)]
     public int attackDamage;
     [Tooltip("How much spread should the projectile have.")]
-    [Range(0f, 5f)]
+    [Range(0f, 10f)]
     public float spread;
     [Tooltip("How many objects can the projectile pierce.")]
     [Range(1, 5)]

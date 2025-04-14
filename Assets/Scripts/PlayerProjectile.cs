@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerProjectile : Projectile
@@ -20,6 +21,7 @@ public class PlayerProjectile : Projectile
     protected override void GetTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
         if (enemies.Length == 0)
             return;
         GameObject closest = enemies[0];
@@ -31,6 +33,15 @@ public class PlayerProjectile : Projectile
             {
                 distance = magnitude;
                 closest = enemies[i];
+            }
+        }
+        for (int i = 0; i < towers.Length; i++)
+        {
+            float magnitude = (towers[i].transform.position - transform.position).magnitude;
+            if (magnitude < distance)
+            {
+                distance = magnitude;
+                closest = towers[i];
             }
         }
         target = closest;

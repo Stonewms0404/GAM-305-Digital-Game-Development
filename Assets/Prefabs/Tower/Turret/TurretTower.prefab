@@ -35,6 +35,7 @@ Transform:
   m_Children:
   - {fileID: 3729697291245779904}
   - {fileID: 4561657941827304305}
+  - {fileID: 6908944993726155109}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &964155196914639016
@@ -105,6 +106,16 @@ MonoBehaviour:
   stats: {fileID: 11400000, guid: c842b8db6bb6b3c468c8ec6beb0bb41f, type: 2}
   listedStats:
   - {fileID: 11400000, guid: c842b8db6bb6b3c468c8ec6beb0bb41f, type: 2}
+  pickups:
+  - {fileID: 173363714588439803, guid: 426872b6c3f7f764288809749f82b736, type: 3}
+  - {fileID: 7006017326218931271, guid: a0d72fbdfa372b64c8aada0b16413517, type: 3}
+  - {fileID: 6096940732088440227, guid: 1fb2d181a6d48da428cce6e4b8574267, type: 3}
+  - {fileID: 8130384954317253143, guid: fec7e45c6fb845c4e9f7f99d7696c17d, type: 3}
+  - {fileID: 8508940959985513474, guid: 2a1bcf0d64245b74d803570c269ad3d9, type: 3}
+  - {fileID: 7808278225709047885, guid: 54f5f0aee06281a47b8753fa571e9f3c, type: 3}
+  pickupLocation: {fileID: 4447772275472196859}
+  hitParticles: {fileID: 0}
+  deathParticles: {fileID: 0}
   shotsPerFire: 1
   projectiles:
   - {fileID: 6166534817262336931, guid: 917bb6f678dfea64088f7b3bd678c864, type: 3}
@@ -132,6 +143,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &4447772275472196859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6908944993726155109}
+  m_Layer: 0
+  m_Name: SpawnPickupLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6908944993726155109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447772275472196859}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2327175676890141864}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5618154754821838471
 GameObject:
   m_ObjectHideFlags: 0

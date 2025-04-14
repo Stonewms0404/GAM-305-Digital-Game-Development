@@ -33,7 +33,7 @@ public class PlayerStats : ScriptableObject
 
     [Header("Health")]
     [Tooltip("How many hits until the enemy dies.")]
-    [Range(1, 50)]
+    [Range(1, 200)]
     public int hitPoints;
     [Tooltip("How many hits until the player dies.")]
     public int lives;

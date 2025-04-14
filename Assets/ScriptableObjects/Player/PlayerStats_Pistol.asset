@@ -20,5 +20,5 @@ MonoBehaviour:
   shotsPerSecond: 1
   playerProjectile: {fileID: 5706046740633881759, guid: ed466d007d24fb643ba8555470d9a1f8, type: 3}
   shotsPerFire: 1
-  hitPoints: 50
+  hitPoints: 100
   lives: 3
