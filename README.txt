@@ -300,3 +300,40 @@ Completed Tasks
 	Modeling:
 		Added floor textures and created a new skybox (Jonathan LeMasters)
 		Created and added power-up models (Jonathan LeMasters)
+
+
+
+Module 6: Final Release
+	What parts of the plan did the team perceive to go well in relation to the last stage
+	evaluation?
+		Since most of the major work was done, all that needed to be done was to finalize
+		some smaller details and create a better outlook for the look of the game. This
+		meant to finalize bugs found, create some particle systems for the death/hit/despawns
+		of objects, and connect every UI Element to the final game's scene.
+	What parts of the plan did the team perceive to go wrong in relation to the last stage
+	evaluation?
+		Due to the majority of the work completed already, the team took most of the week to
+		reflect compared to push hard on changes that needed to happen.
+	How were the previous evaluations integrated into this latest stage?
+		In this latest stage we polished everything that we had integrated in previous stages, 
+		made the game flow properly by having the key spawn when all towers are destroyed, and 
+		fixed other bugs and balancing issues we encountered previously.
+	What would you do differently to improve the collaboration or development process?
+		Still the biggest issue with collaboration is always the frequency of communication.
+		Our team had less communication compared to last module.
+	Were there any tools or techniques that you did not find helpful in the success of your
+	project development? Why?
+		The team while having more time to try out Trello for bug tracking, still did not find
+		a need to use it as we generally just fixed the issue that arise when it happened.
+		Other than that, there were no new techniques or tools we used in this module that
+		were not helpful.
+Completed Tasks
+	Programming:
+		Fixed some issues with the key not spawning or working correctly (Stone Williams)
+		Fixed the Towers not spawning pickups (Stone Williams)
+		Fixed Turrets spawning the pickup too high (Stone Williams)
+	Modeling:
+		Created machine gun powerup model and added all models to powerups (Jonathan LeMasters)
+		Added texture for walls (Jonathan LeMasters)
+	Project Management:
+		Balanced weapons (Stone Williams)
